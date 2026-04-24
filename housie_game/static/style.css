@@ -1,0 +1,91 @@
+:root {
+    --bg-color: #f4f7f6;
+    --primary: #2c3e50;
+    --success: #27ae60;
+    --border: #dcdde1;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#current-number {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--primary);
+    background: white;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    border: 5px solid var(--primary);
+    margin: 10px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover { background-color: #34495e; transform: scale(1.05); }
+button:disabled { background-color: #bdc3c7; cursor: not-allowed; }
+
+/* WIDE BOARD SETTINGS */
+.board {
+    display: grid;
+    /* Changed from 10 to 15 columns for more width */
+    grid-template-columns: repeat(15, 1fr); 
+    gap: 8px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 95%; /* Makes it take up most of the screen width */
+    max-width: 1200px; 
+}
+
+.cell {
+    height: 60px; /* Taller cells for a "bigger" feel */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #b2bec3;
+    transition: all 0.4s ease;
+}
+
+/* Active Number */
+.cell.active {
+    background-color: var(--success);
+    color: white;
+    border-color: var(--success);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(39, 174, 96, 0.3);
+}
+
+/* Highlight the latest draw */
+.cell.latest {
+    border: 3px solid #f1c40f;
+    box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+}
